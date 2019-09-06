@@ -1,0 +1,70 @@
+﻿<section class="home-slider js-fullheight owl-carousel">
+    <div class="slider-item js-fullheight" style="background-image:url(/views/templates/images/bg_2.jpg);">
+        <div class="overlay"></div>
+        <div class="container-fluid">
+            <div class="row no-gutters slider-text slider-text-2 js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
+                <div class="col-md-10 text-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }" style="padding-top:350px !important">
+                    <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">İndirimix App</h1>
+                    <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Trend ürünlerdeki indirimlerin keyfini çıkartın.</p>
+                </div>
+            </div>
+        </div>
+    </div>   
+</section>
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center mb-5 pb-2">
+            <div class="col-md-7 heading-section text-center ftco-animate">
+                <h2 class="mb-4">Articles</h2>
+                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4" ng-repeat="item in products">
+                <div class="blog-entry">
+                    <a href="#" class="img img-2" style="background-image: url(/views/templates/images/image_1.jpg);cursor: pointer;"></a>
+                    <div class="text text-2 pt-2 mt-3">
+                        <span class="category mb-3 d-block"><a href="#">{{item.Location}}</a></span>
+                        <h3 class="mb-4"><a href="#">{{item.Name}} </a></h3>
+                        <p class="mb-4">{{item.Store}}</p>
+                        <div class="author mb-4 d-flex align-items-center">
+                            <a href="#" class="img" style="background-image: url(/views/templates/images/person_2.jpg);"></a>
+                            <div class="ml-3 info">
+                                <span>Ekleyen</span>
+                                <h3><a href="#" ng-click="open();">Dave Lewis</a>, <span>Nov. 28, 2018</span></h3>
+                            </div>
+                        </div>
+                        <div class="meta-wrap align-items-center">
+                            <div class="half order-md-last">
+                                <p class="meta">
+                                    <span><i class="icon-heart"></i>3</span>
+                                    <span><i class="icon-eye"></i>100</span>
+                                    <span><i class="icon-comment"></i>5</span>
+                                </p>
+                            </div>
+                            <div class="half">
+                                <p><a href="javascript:" class="btn py-2" ng-click="productDetail(item.Id)">İncele <span class="ion-ios-arrow-forward"></span></a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col">
+                <div class="block-27">
+                    <ul>
+                        <li><a href="#">&lt;</a></li>
+                        <li class="active"><span>1</span></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">&gt;</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

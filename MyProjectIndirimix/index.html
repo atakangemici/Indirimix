@@ -1,0 +1,212 @@
+﻿<!DOCTYPE html>
+<html data-ng-app="indirimixApp">
+<head>
+    <title>İndirimix</title>
+    <base href="/">
+    <meta charset="utf-8">
+    <meta name="viewsport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="fragment" content="!" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="views/templates/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="views/templates/css/animate.css">
+
+    <link rel="stylesheet" href="views/templates/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="views/templates/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="views/templates/css/magnific-popup.css">
+    <link rel="stylesheet" href="views/templates/css/aos.css">
+    <link rel="stylesheet" href="views/templates/css/ionicons.min.css">
+    <link rel="stylesheet" href="views/templates/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="views/templates/css/jquery.timepicker.css">
+
+    <link rel="stylesheet" href="views/templates/css/flaticon.css">
+    <link rel="stylesheet" href="views/templates/css/icomoon.css">
+    <link rel="stylesheet" href="views/templates/css/style.css">
+
+
+
+</head>
+<body>
+    <div id="colorlib-page">
+        <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
+        <aside id="colorlib-aside" style="padding-top:85px" role="complementary" class="js-fullheight text-center">
+            <h1 id="colorlib-logo"><a href="index.html">İndirimix<span>.</span></a></h1>
+            <nav id="colorlib-main-menu" role="navigation">
+                <ul>
+                    <li><a href="/home">Anasayfa</a></li>
+                    <li><a href="/productdetail/1007">Ürün Detay(Kaldırılacak)</a></li>
+                    <li ng-if="User.Email"><a href="/profile">Profilim</a></li>
+                    <li ng-if="User.Email"><a href="/favorites">Beğenilerim</a></li>
+
+                    <li><a href="/contact">İletişim</a></li>
+
+
+                    <!-- Modal -->
+
+                </ul>
+
+            </nav>
+            <div class="colorlib-footer">
+                <p>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+
+                    <ul>
+                        <li><a href="#" data-toggle="modal" data-target="#exampleModal"><i class="icon-user" style="font-size:35px"></i></a></li>
+                    </ul>
+            </div>
+        </aside> <!-- END COLORLIB-ASIDE -->
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel" ng-show="loginform">Giriş</h5>
+                        <h5 class="modal-title" id="exampleModalLabel" ng-show="!loginform">Kayıt</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-login" role="form" ng-show="loginform">
+                            <input type="text" class="form-control"
+                                   placeholder="Email" data-ng-model="loginData.userName" required autofocus>
+                            <input type="password" class="form-control"
+                                   placeholder="Şifre" data-ng-model="loginData.password" style="margin-top: 20px;" required>
+                        </form>
+                        <form class="form-login" role="form" ng-show="!loginform">
+                            <input type="text" class="form-control"
+                                   placeholder="Ad" data-ng-model="registration.Username" style="margin-bottom:20px" required autofocus>
+                            <input type="text" class="form-control"
+                                   placeholder="Soyad" data-ng-model="registration.UserSurName" style="margin-bottom:20px" required autofocus>
+                            <input type="text" class="form-control"
+                                   placeholder="Email" data-ng-model="registration.Email" style="margin-bottom:20px" required autofocus>
+                            <input type="password" class="form-control"
+                                   placeholder="Şifre" data-ng-model="registration.Password" style="margin-bottom:20px" required>
+                            <input type="password" class="form-control"
+                                   placeholder="Tekrar Şifre" data-ng-model="registration.ConfirmPassword" required>
+
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col" style="padding-top: 6px;">
+                                    <a href="#" ng-show="loginform" ng-click="registerClick()" data-ng-click="signUp()">Kayıt Ol</a>
+                                    <a href="#" ng-show="!loginform" ng-click="loginClick()" data-ng-click="login()">Giriş Yap</a>
+                                </div>
+                                <div class="col" style="text-align:right">
+                                    <button type="button" ng-show="loginform" data-ng-click="login()" class="btn btn-primary">Giriş Yap</button>
+                                    <button type="button" ng-show="!loginform" data-ng-click="signUp()" class="btn btn-primary">Kayıt Ol</button>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="colorlib-main">
+            <ng-view></ng-view>
+            <footer class="ftco-footer ftco-bg-dark ftco-section">
+                <div class="container px-md-5">
+                    <div class="row mb-5">
+                        <div class="col-md">
+                            <div class="ftco-footer-widget mb-4 ml-md-4">
+                                <h2 class="ftco-heading-2">Category</h2>
+                                <ul class="list-unstyled categories">
+                                    <li><a href="#">Photography <span>(6)</span></a></li>
+                                    <li><a href="#">Fashion <span>(8)</span></a></li>
+                                    <li><a href="#">Technology <span>(2)</span></a></li>
+                                    <li><a href="#">Travel <span>(2)</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="ftco-footer-widget mb-4">
+                                <h2 class="ftco-heading-2">Archives</h2>
+                                <ul class="list-unstyled categories">
+                                    <li><a href="#">October 2018 <span>(6)</span></a></li>
+                                    <li><a href="#">September 2018 <span>(6)</span></a></li>
+                                    <li><a href="#">August 2018 <span>(8)</span></a></li>
+                                    <li><a href="#">July 2018 <span>(2)</span></a></li>
+                                    <li><a href="#">June 2018 <span>(7)</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="ftco-footer-widget mb-4">
+                                <h2 class="ftco-heading-2">Have a Questions?</h2>
+                                <div class="block-23 mb-3">
+                                    <ul>
+                                        <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
+                                        <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
+                                        <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p>
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                &copy;
+                                <script>document.write(new Date().getFullYear());</script> Tüm Hakları Saklıdır  | <a href="https://colorlib.om" target="_blank" style="color:#f05d23">EA Bilişim</a>
+
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div><!-- END COLORLIB-MAIN -->
+    </div><!-- END COLORLIB-PAGE -->
+    <!-- loader -->
+    <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" /><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg></div>
+    <script src="views/scripts/angular.js"></script>
+    <script src="views/scripts/angular.min.js"></script>
+    <script src="views/scripts/angular-route.min.js"></script>
+    <script src="views/scripts/angular-local-storage.min.js"></script>
+    <script src="views/scripts/loading-bar.min.js"></script>
+    <script src="views/scripts/angular-local-storage.min.js"></script>
+    <script src="views/scripts/loading-bar.min.js"></script>
+    <script src="views/app/app.js"></script>
+    <script src="views/app/services/appService.js"></script>
+    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.9.0.js"></script>
+    <!-- Load app main script -->
+    <!-- Load services -->
+    <script src="views/app/services/authInterceptorService.js"></script>
+    <script src="views/app/services/authService.js"></script>
+    <!-- Load controllers -->
+    <script src="views/app/controllers/indexController.js"></script>
+    <script src="views/app/controllers/homeController.js"></script>
+    <script src="views/app/controllers/loginController.js"></script>
+    <script src="views/app/controllers/signupController.js"></script>
+    <script src="views/app/controllers/favoritesController.js"></script>
+    <script src="views/app/controllers/loginController.js"></script>
+    <script src="views/app/controllers/contactController.js"></script>
+    <script src="views/app/controllers/productDetailController.js"></script>
+    <script src="views/app/controllers/productsController.js"></script>
+    <script src="views/app/controllers/signUpController.js"></script>
+    <script src="views/app/controllers/blogController.js"></script>
+    <script src="views/app/controllers/profileController.js"></script>
+
+    <script src="views/templates/js/jquery.min.js"></script>
+    <script src="views/templates/js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="views/templates/js/popper.min.js"></script>
+    <script src="views/templates/js/bootstrap.min.js"></script>
+    <script src="views/templates/js/jquery.easing.1.3.js"></script>
+    <script src="views/templates/js/jquery.waypoints.min.js"></script>
+    <script src="views/templates/js/jquery.stellar.min.js"></script>
+    <script src="views/templates/js/owl.carousel.min.js"></script>
+    <script src="views/templates/js/jquery.magnific-popup.min.js"></script>
+    <script src="views/templates/js/aos.js"></script>
+    <script src="views/templates/js/jquery.animateNumber.min.js"></script>
+    <script src="views/templates/js/bootstrap-datepicker.js"></script>
+    <script src="views/templates/js/scrollax.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="views/templates/js/google-map.js"></script>
+    <script src="views/templates/js/main.js"></script>
+</body>
+</html>
